@@ -1,0 +1,27 @@
+0 HEAD
+1 GEDC
+2 VERS 5.5.1
+0 @S2222@ SUBM
+1 NAME Vincent van Gogh
+1 ADDR 555 Brown Street
+2 CONT Brown City, Brownington
+2 CONT 55555
+2 ADR1 555 Brown Street
+2 ADR2 Brown City, Brownington
+2 ADR3 55555
+2 CITY Brown City
+2 POST 55555
+2 STAE Brownington
+2 CTRY USA
+1 PHON 555-555-5555
+1 FAX 555-555-5555
+1 EMAIL tester@test.com
+1 WWW www.test.com
+1 LANG English
+1 RIN 42
+1 RFN 2222222
+1 CHAN
+2 DATE 2010-03-2
+1 NOTE van Gogh Rocks!
+1 OBJE @O14@
+0 TRLR

@@ -1,0 +1,10 @@
+Package PEAR2_Genealogy_Gedcom summary.
+
+This package supports reading of a standard GEDCOM 5.5.1 compliant file
+and parsing that file into an object tree.  Fields can then be navigated
+using standard object references.
+
+It also supports writing as GEDCOM 5.5.1 compliant file though it DOES NOT
+guarantee that the file created will be identical in every way to the
+original, only that it will be compliant.
+

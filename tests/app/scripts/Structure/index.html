@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Mocha tests in the browser use unicode symbols for bullet points
+so unless you want weird character bullet points, we add this. It doesn't
+break anything with or without it. -->
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/node_modules/grunt-blanket-mocha/node_modules/mocha/mocha.css">
+    <!-- This is where mocha inserts the test results that are styled with the css file above -->
+    <div id="mocha"></div>
+    <!-- This is where any fixtures we need for the test will be inserted into. Naturally, we won't want to cover the mocha test results so we position this bad boy off screen. -->
+    <div id="test" style="position: fixed; top: 0; left: -99999px;">
+    </div>
+    <!-- We need to insert our testing dependencies here -->
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/node_modules/chai/chai.js"></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/node_modules/sinon-chai/lib/sinon-chai.js"></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/node_modules/sinon/pkg/sinon.js"></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/node_modules/grunt-blanket-mocha/node_modules/mocha/mocha.js"></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/node_modules/blanket/dist/mocha/blanket_mocha.js"></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/node_modules/grunt-blanket-mocha/support/mocha-blanket.js"></script>
+    <!-- We will using BDD-style assertions. See Mocha documentation for more info -->
+    <script>mocha.setup('bdd');</script>
+    <!-- The source file we will be testing! Don't forget the data-cover attribute so Blanket will know which file will need to be instrumented for coverage. -->
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Tags.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/EntityAbstract.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/Place.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/Address.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/FactDetail.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/Note.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/Association.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/ChangeDate.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/CharacterSet.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/Citation.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/Corporation.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/Data.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/Event.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/Fact.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/FamilyLink.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/GedC.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/MediaFile.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/MediaLink.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/NamePieces.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/Name.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/PersonalName.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/RepositoryCitation.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/SourceData.js" data-cover></script>
+    <script src="../../../../../genealogygedcom-code-326-GenealogyGedcom-trunk/src/app/scripts/Structure/SourceSystem.js" data-cover></script>
+    <!-- Our test suite needs to be after the source file, of course -->
+    <script src="./AddressTest.js"></script>
+    <script src="./AssociationTest.js"></script>
+    <script src="./CitationTest.js"></script>
+    <script src="./ChangeDateTest.js"></script>
+    <script src="./CharacterSetTest.js"></script>
+    <script src="./CorporationTest.js"></script>
+    <script src="./DataTest.js"></script>
+    <script src="./EventTest.js"></script>
+    <script src="./FactTest.js"></script>
+    <script src="./FamilyLinkTest.js"></script>
+    <script src="./GedCTest.js"></script>
+    <script src="./MediaFileTest.js"></script>
+    <script src="./MediaLinkTest.js"></script>
+    <script src="./NamePiecesTest.js"></script>
+    <script src="NameTest.js"></script>
+    <script src="./NoteTest.js"></script>
+    <script src="./PersonalNameTest.js"></script>
+    <script src="./PlaceTest.js"></script>
+    <script src="./RepositoryCitationTest.js"></script>
+    <script src="./SourceDataTest.js"></script>
+    <script src="./SourceSystemTest.js"></script>
+    <script>
+        var expect = chai.expect;
+        mocha.run();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package version="2.1" xmlns="http://pear.php.net/dtd/package-2.1"
+	xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd
+                                           http://pear.php.net/dtd/package-2.1  http://pear.php.net/dtd/package-2.1.xsd">
+	<name>PEAR2_Genealogy_Gedcom</name>
+	<channel>pear2.php.net</channel>
+	<summary>A file parser for GEDCOM files.</summary>
+	<description>
+GEDCOM is the defacto standard file format for exchanging genealogical data between different genealogy software
+(http://en.wikipedia.org/wiki/Gedcom).  It is a text based file format supported by almost all genealogy
+software packages for importing and exporting data.
+
+This package supports reading of a standard GEDCOM 5.5.1 compliant file
+and parsing that file into an object tree.  Fields can then be navigated
+using standard object references.
+
+It also supports writing output in GEDCOM 5.5.1 compliant format, although it DOES NOT
+guarantee that the file created will be identical in every way to the
+original- only that it will be compliant.
+ </description>
+	<lead>
+		<name>Ed Thompson</name>
+		<user>ed4becky</user>
+		<email>ed4becky@gmail.com</email>
+		<active>yes</active>
+	</lead>
+	<date>2010-04-01</date>
+	<time>20:11:13</time>
+	<version>
+		<release>2.0.0</release>
+		<api>2.0.0</api>
+	</version>
+	<stability>
+		<release>alpha</release>
+		<api>alpha</api>
+	</stability>
+	<license uri="http://www.opensource.org/licenses/apache2.0.php">Apache 2.0 Software License</license>
+	<notes>
+* supports all 5.5.1 GEDCOM structures EXCEPT those listed below
+* the LDS_INDIVIDUAL_ORDINANCE structure is not yet supported
+* the LDS_SPOUSE_SEALING structure is not yet supported
+* the LDS_SPOUSE_SEALING structure is not yet supported
+* the SOURCE_CITATION structure unpreferred format is not yet supported
+* code to enforce CONC records not breaking on a space needs to be added
+* custom tags are not supported
+ </notes>
+ <contents>
+  <dir name="/">
+   <dir name="data">
+    <dir name="testfiles">
+     <file role="data" name="allged5.5.ged"/>
+     <file role="data" name="FullFamily.ged"/>
+     <file role="data" name="FullHeader.ged"/>
+     <file role="data" name="FullIndividual.ged"/>
+     <file role="data" name="FullMedia.ged"/>
+     <file role="data" name="FullNote.ged"/>
+     <file role="data" name="FullRepo.ged"/>
+     <file role="data" name="FullSubmission.ged"/>
+     <file role="data" name="FullSubmitter.ged"/>
+     <file role="data" name="NoHead.ged"/>
+     <file role="data" name="NoTail.ged"/>
+     <file role="data" name="OnlyHeadAndTail.ged"/>
+     <file role="data" name="simple5.5.ged"/>
+     <file role="data" name="stdExample5.5.1.ged"/>
+    </dir>
+   </dir>
+   <dir name="examples">
+    <file role="doc" name="StandardUseCases.php"/>
+    <file role="doc" name="UseCases-INDI-Record.php"/>
+   </dir>
+   <dir name="src">
+    <dir name="PEAR2">
+     <dir name="Genealogy">
+      <dir name="Gedcom">
+       <dir name="Exceptions">
+        <file role="php" name="Exception.php"/>
+        <file role="php" name="FileException.php"/>
+        <file role="php" name="InvalidFieldException.php"/>
+       </dir>
+       <dir name="Records">
+        <file role="php" name="FamilyRecord.php"/>
+        <file role="php" name="HeaderRecord.php"/>
+        <file role="php" name="IndividualRecord.php"/>
+        <file role="php" name="MediaRecord.php"/>
+        <file role="php" name="NoteRecord.php"/>
+        <file role="php" name="RepositoryRecord.php"/>
+        <file role="php" name="SourceRecord.php"/>
+        <file role="php" name="SubmissionRecord.php"/>
+        <file role="php" name="SubmitterRecord.php"/>
+       </dir>
+       <dir name="Structures">
+        <file role="php" name="Address.php"/>
+        <file role="php" name="Association.php"/>
+        <file role="php" name="ChangeDate.php"/>
+        <file role="php" name="CharacterSet.php"/>
+        <file role="php" name="Citation.php"/>
+        <file role="php" name="Corporation.php"/>
+        <file role="php" name="Data.php"/>
+        <file role="php" name="EntityAbstract.php"/>
+        <file role="php" name="Event.php"/>
+        <file role="php" name="Fact.php"/>
+        <file role="php" name="FactDetail.php"/>
+        <file role="php" name="FamilyLink.php"/>
+        <file role="php" name="GedC.php"/>
+        <file role="php" name="LdsOrdinance.php"/>
+        <file role="php" name="LdsSealing.php"/>
+        <file role="php" name="MediaFile.php"/>
+        <file role="php" name="MediaLink.php"/>
+        <file role="php" name="Name.php"/>
+        <file role="php" name="NamePieces.php"/>
+        <file role="php" name="Note.php"/>
+        <file role="php" name="PersonalName.php"/>
+        <file role="php" name="Place.php"/>
+        <file role="php" name="RepositoryCitation.php"/>
+        <file role="php" name="SourceData.php"/>
+        <file role="php" name="SourceSystem.php"/>
+       </dir>
+       <file role="php" name="GedcomManager.php"/>
+       <file role="php" name="Parser.php"/>
+       <file role="php" name="Tags.php"/>
+      </dir>
+     </dir>
+    </dir>
+   </dir>
+   <dir name="tests">
+    <dir name="PEAR2">
+     <dir name="Genealogy">
+      <dir name="Gedcom">
+       <dir name="Records">
+        <file role="test" name="FamilyRecordTest.php"/>
+        <file role="test" name="HeaderRecordTest.php"/>
+        <file role="test" name="IndividualRecordTest.php"/>
+        <file role="test" name="MediaRecordTest.php"/>
+        <file role="test" name="NoteRecordTest.php"/>
+        <file role="test" name="RepositoryRecordTest.php"/>
+        <file role="test" name="SourceRecordTest.php"/>
+        <file role="test" name="SubmissionRecordTest.php"/>
+        <file role="test" name="SubmitterRecordTest.php"/>
+       </dir>
+       <dir name="Structures">
+        <file role="test" name="AddressTest.php"/>
+        <file role="test" name="AssociationTest.php"/>
+        <file role="test" name="ChangeDateTest.php"/>
+        <file role="test" name="CharacterSetTest.php"/>
+        <file role="test" name="CitationTest.php"/>
+        <file role="test" name="CorporationTest.php"/>
+        <file role="test" name="DataTest.php"/>
+        <file role="test" name="EventTest.php"/>
+        <file role="test" name="FactTest.php"/>
+        <file role="test" name="FamilyLinkTest.php"/>
+        <file role="test" name="GedCTest.php"/>
+        <file role="test" name="LdsOrdinanceTest.php"/>
+        <file role="test" name="LdsSealingTest.php"/>
+        <file role="test" name="MediaFileTest.php"/>
+        <file role="test" name="MediaLinkTest.php"/>
+        <file role="test" name="NamePiecesTest.php"/>
+        <file role="test" name="NameTest.php"/>
+        <file role="test" name="NoteTest.php"/>
+        <file role="test" name="PersonalNameTest.php"/>
+        <file role="test" name="PlaceTest.php"/>
+        <file role="test" name="RepositoryCitationTest.php"/>
+        <file role="test" name="SourceDataTest.php"/>
+        <file role="test" name="SourceSystemTest.php"/>
+       </dir>
+       <file role="test" name="GedcomManagerTest.php"/>
+       <file role="test" name="ParserTest.php"/>
+      </dir>
+     </dir>
+    </dir>
+    <file role="test" name="MyTestSuite.php"/>
+   </dir>
+  </dir>
+ </contents>
+	<dependencies>
+		<required>
+			<php>
+				<min>5.3.0</min>
+			</php>
+			<pearinstaller>
+				<min>2.0.0a1</min>
+			</pearinstaller>
+		</required>
+	</dependencies>
+	<phprelease />
+</package>

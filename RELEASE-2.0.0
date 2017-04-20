@@ -1,0 +1,8 @@
+Package PEAR2_Genealogy_Gedcom release notes for version 2.0.0a1.
+
+* supports all 5.5.1 GEDCOM structures EXCEPT those listed below
+* the LDS_INDIVIDUAL_ORDINANCE structure is not yet supported
+* the LDS_SPOUSE_SEALING structure is not yet supported
+* the LDS_SPOUSE_SEALING structure is not yet supported
+* the SOURCE_CITATION structure unpreferred format is not yet supported
+* code to enforce CONC records not breaking on a space needs to be added

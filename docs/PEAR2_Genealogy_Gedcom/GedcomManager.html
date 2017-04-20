@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class GedcomManager</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class GedcomManager</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-vars">Vars</a>
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Main class for PEAR2_Genealogy_Gedcom</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Ed Thompson &lt;<a href="mailto:ed4becky@gmail.com">ed4becky@gmail.com</a>&gt;</li>
+				<li><span class="field">copyright:</span> 2010 Ed Thompson</li>
+				<li><span class="field">link:</span> <a href="http://svn.php.net/repository/PEAR2/PEAR2_Genealogy_Gedcom">http://svn.php.net/repository/PEAR2/PEAR2_Genealogy_Gedcom</a></li>
+				<li><span class="field">license:</span> <a href="http://www.opensource.org/licenses/Apache2.0.php">Apache License</a></li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_GedcomManager.php.html">/GedcomManager.php</a> (line <span class="field">27</span>)
+		</p>
+		
+				
+		<pre><a href="../PEAR2_Genealogy_Gedcom/Parser.html">Parser</a>
+   |
+   --GedcomManager</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-vars">Vars</a>
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																																																				
+												<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">$Filename</span>&nbsp;<span class="var-name">$Filename</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getFamily" title="details" class="method-name">getFamily</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getHeader" title="details" class="method-name">getHeader</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getIndividual" title="details" class="method-name">getIndividual</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getLastUpdate" title="details" class="method-name">getLastUpdate</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getNumberOfFamilies" title="details" class="method-name">getNumberOfFamilies</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getNumberOfIndividuals" title="details" class="method-name">getNumberOfIndividuals</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getNumberOfNotes" title="details" class="method-name">getNumberOfNotes</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getNumberOfObjects" title="details" class="method-name">getNumberOfObjects</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getNumberOfRepositories" title="details" class="method-name">getNumberOfRepositories</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getNumberOfSources" title="details" class="method-name">getNumberOfSources</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getNumberOfSubmitters" title="details" class="method-name">getNumberOfSubmitters</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getObject" title="details" class="method-name">getObject</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#isFamily" title="details" class="method-name">isFamily</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#isIndividual" title="details" class="method-name">isIndividual</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#isObject" title="details" class="method-name">isObject</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#toGedcom" title="details" class="method-name">toGedcom</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#__toString" title="details" class="method-name">__toString</a>
+										()
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../PEAR2_Genealogy_Gedcom/Parser.html">Parser</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../PEAR2_Genealogy_Gedcom/Parser.html#var$gedcomFilename">Parser::$gedcomFilename</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../PEAR2_Genealogy_Gedcom/Parser.html#var$gedcomObjects">Parser::$gedcomObjects</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../PEAR2_Genealogy_Gedcom/Parser.html#var$gedcomVersion">Parser::$gedcomVersion</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-vars">Vars</a>
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">40</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads and parses a GEDCOM formatted file into  Objects</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> FileException</li>
+				<li><span class="field">since:</span> Method available since Release 0.0.1</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">$Filename</span>&nbsp;<span class="var-name">$Filename</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$Filename</span>
+				<span class="var-name">$Filename</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../PEAR2_Genealogy_Gedcom/Parser.html#method__construct">Parser::__construct()</a></dt>
+						<dd>Construct a Parser object</dd>
+					</dl>
+			
+	</div>
+<a name="methodgetFamily" id="getFamily"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFamily</span> (line <span class="line-number">154</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get a family (object) from an identifier</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> object or false on error.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getFamily
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$identifier</span><span class="var-description">: Identifier</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetHeader" id="getHeader"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getHeader</span> (line <span class="line-number">179</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the header object</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> object or false on error.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getHeader
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetIndividual" id="getIndividual"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getIndividual</span> (line <span class="line-number">141</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get an Individual (object) from an identifier</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> object or boolean (error)</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getIndividual
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$identifier</span><span class="var-description">: Identifier</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetLastUpdate" id="getLastUpdate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getLastUpdate</span> (line <span class="line-number">128</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">return the last update</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getLastUpdate
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetNumberOfFamilies" id="getNumberOfFamilies"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNumberOfFamilies</span> (line <span class="line-number">63</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">return the number of family</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getNumberOfFamilies
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetNumberOfIndividuals" id="getNumberOfIndividuals"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNumberOfIndividuals</span> (line <span class="line-number">52</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">return the number of individual</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getNumberOfIndividuals
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetNumberOfNotes" id="getNumberOfNotes"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNumberOfNotes</span> (line <span class="line-number">85</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">return the number of object</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getNumberOfNotes
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetNumberOfObjects" id="getNumberOfObjects"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNumberOfObjects</span> (line <span class="line-number">74</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">return the number of object</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getNumberOfObjects
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetNumberOfRepositories" id="getNumberOfRepositories"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNumberOfRepositories</span> (line <span class="line-number">96</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">return the number of object</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getNumberOfRepositories
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetNumberOfSources" id="getNumberOfSources"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNumberOfSources</span> (line <span class="line-number">107</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">return the number of object</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getNumberOfSources
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetNumberOfSubmitters" id="getNumberOfSubmitters"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNumberOfSubmitters</span> (line <span class="line-number">118</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">return the number of object</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getNumberOfSubmitters
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetObject" id="getObject"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getObject</span> (line <span class="line-number">167</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get an object (object) from an identifier</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> object or false on error.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getObject
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$identifier</span><span class="var-description">: Identifier</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodisFamily" id="isFamily"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">isFamily</span> (line <span class="line-number">204</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">test if a family exists</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isFamily
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$identifier</span><span class="var-description">: Identifier</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodisIndividual" id="isIndividual"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">isIndividual</span> (line <span class="line-number">191</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">test if an individual exists</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isIndividual
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$identifier</span><span class="var-description">: Identifier</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodisObject" id="isObject"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">isObject</span> (line <span class="line-number">217</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">test if an object exists</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isObject
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$identifier</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$identifier</span><span class="var-description">: Identifier</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodtoGedcom" id="toGedcom"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">toGedcom</span> (line <span class="line-number">226</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> serialized gedcom file</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			toGedcom
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="method__toString" id="__toString"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__toString</span> (line <span class="line-number">281</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates a string representation of the object</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> serialized information about the parsed gedcom</li>
+				<li><span class="field">since:</span> Method available since Release 0.0.1</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			__toString
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../PEAR2_Genealogy_Gedcom/Parser.html#method__toString">Parser::__toString()</a></dt>
+						<dd>Creates a string representation of the object</dd>
+					</dl>
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../PEAR2_Genealogy_Gedcom/Parser.html">Parser</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../PEAR2_Genealogy_Gedcom/Parser.html#method__construct">Parser::__construct()</a></span><br>
+													<span class="method-name"><a href="../PEAR2_Genealogy_Gedcom/Parser.html#methodparse">Parser::parse()</a></span><br>
+													<span class="method-name"><a href="../PEAR2_Genealogy_Gedcom/Parser.html#method__toString">Parser::__toString()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 31 Mar 2010 11:22:22 -0400 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

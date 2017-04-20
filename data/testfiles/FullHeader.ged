@@ -1,0 +1,38 @@
+0 HEAD
+1 SOUR 42
+2 VERS 1.0
+2 NAME FamilyVanGogh
+2 CORP van Gogh Enterprises
+3 ADDR 555 Brown Street
+4 CONT Brown City, Brownington
+4 CONT 55555
+4 ADR1 555 Brown Street
+4 ADR2 Brown City, Brownington
+4 ADR3 55555
+4 CITY Brown City
+4 POST 55555
+4 STAE Brownington
+4 CTRY USA
+3 PHON 555-555-5555
+3 FAX 555-555-5555
+3 EMAIL tester@test.com
+3 WWW www.test.com
+2 DATA Data Source
+3 DATE 2010-03-01
+3 COPR Line1
+1 DEST My Laptop
+1 DATE 2010-03-01
+2 TIME 12:00:00EDT
+1 LANG English
+1 FILE myged.ged
+1 SUBM @S111@
+1 SUBN @X111@
+1 COPR 2010 Ed Thompson
+1 PLAC
+2 FORM Huh?
+1 GEDC
+2 VERS 5.5.1
+1 CHAR UTF-8
+2 VERS 1.0
+1 NOTE van Gogh Rocks!
+0 TRLR

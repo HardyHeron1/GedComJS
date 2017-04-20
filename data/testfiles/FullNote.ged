@@ -1,0 +1,12 @@
+0 HEAD
+1 GEDC
+2 VERS 5.5.1
+0 @N111@ NOTE Hello Dolly!
+1 CONT van Gogh Rocks!
+1 REFN 113
+2 TYPE box
+1 RIN 42
+1 CHAN
+2 DATE 2010-03-2
+1 SOUR @S33@
+0 TRLR
