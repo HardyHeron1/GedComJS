@@ -23,6 +23,20 @@ Corporation.method('parseTree', function (tree, ver) {
     }
 });
 
+Corporation.method('toGedcom', function (lvl, ver) {
+    "use strict";
+    var gedRec = '';
+    if (this.name && this.name !== '') {
+        gedRec += lvl + ' ' + Tags.CORP + ' ' + this.name;
+    }
+    var lvl2 = lvl + 1;
+    var str = this.address.toGedcom(lvl2, '5.5.1');
+    if (str && str !=='') {
+        gedRec += "\n" + str;
+    }
+    return gedRec;
+});
+
 Corporation.prototype.toString = function () {
     return '(Name->' + this.name
         + ", Address->" + this.address

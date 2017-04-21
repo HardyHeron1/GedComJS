@@ -40,6 +40,29 @@ ChangeDate.method('parseTree', function(tree, ver) {
     }
 });
 
+ChangeDate.method('toGedcom', function (lvl, ver) {
+    "use strict";
+    if (!ver || ver === '') {
+        ver = this.ver;
+    }
+    var gedRec = '';
+    if (ver.indexOf('5.5.1') === 0) {
+        if (this.date && this.date !== '') {
+            gedRec += lvl + ' ' + Tags.CHANGEDATE;
+            var lvl2 = lvl+1;
+            gedRec += "\n" + lvl2 + ' ' + Tags.DATE + ' ' + this.date ;
+            if (this.time && this.time !== '') {
+                gedRec += "\n" +(lvl2+1)
+                    + ' ' + Tags.TIME + ' ' + this.time;
+            }
+            for (var i=0; i<this.notes.length; i++) {
+                gedRec += "\n" + this.notes[i].toGedcom(lvl2, ver);
+            }
+        }
+    }
+    return gedRec;
+});
+
 ChangeDate.prototype.toString = function () {
     var str = '(Date->' + this.date
         + ' ' + this.time

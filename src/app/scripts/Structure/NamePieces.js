@@ -63,6 +63,58 @@ NamePieces.method('parseTree', function(tree, ver) {
     }
 });
 
+NamePieces.method('toGedcom', function(lvl, ver) {
+    "use strict";
+    if (!ver || ver === '') {
+        ver = this.ver;
+    }
+    var gedRec = '';
+    if (ver.indexOf('5.5.1') === 0) {
+        if (this.prefix && this.prefix !== '') {
+            gedRec += lvl + ' ' + Tags.PREFIX + ' ' + this.prefix;
+        }
+
+        if (this.given && this.given !== '') {
+            if (gedRec !== '') {
+                gedRec += "\n";
+            }
+            gedRec += lvl + ' ' + Tags.GIVEN + ' ' +  this.given;
+        }
+        if (this.nickName && this.nickName !== '') {
+            if (gedRec !== '') {
+                gedRec += "\n";
+            }
+            gedRec += lvl + ' ' + Tags.NICK + ' ' +  this.nickName;
+        }
+        if (this.surnamePrefix && this.surnamePrefix !== '') {
+            if (gedRec !== '') {
+                gedRec += "\n";
+            }
+            gedRec += lvl + ' ' + Tags.SURPREFIX
+                + ' ' +  this.surnamePrefix;
+        }
+        if (this.surname && this.surname !== '') {
+            if (gedRec !== '') {
+                gedRec += "\n";
+            }
+            gedRec += lvl + ' ' + Tags.SURNAME + ' ' +  this.surname;
+        }
+        if (this.suffix && this.suffix !== '') {
+            if (gedRec !== '') {
+                gedRec += "\n";
+            }
+            gedRec += lvl + ' ' + Tags.SUFFIX + ' ' +  this.suffix;
+        }
+        for (var i=0; i<this.citations.length; i++) {
+            gedRec += "\n" + this.citations[i].toGedcom(lvl, ver);
+        }
+        for (i=0; i<this.notes.length; i++) {
+            gedRec += "\n" + this.notes[i].toGedcom(lvl, ver);
+        }
+    }
+    return gedRec;
+});
+
 NamePieces.prototype.toString = function () {
     "use strict";
     var str = '(Version->' + this.ver

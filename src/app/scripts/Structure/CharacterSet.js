@@ -27,6 +27,21 @@ CharacterSet.method('parseTree', function(tree, ver) {
     }
 });
 
+CharacterSet.method('toGedcom', function (lvl, ver) {
+    "use strict";
+    var gedRec = '';
+
+    if (this.characterSet && this.characterSet !== '') {
+        gedRec += lvl + ' ' + Tags.CHAR + ' ' + this.characterSet;
+    }
+    var lvl2 = lvl + 1;
+    if (this.verNbr && this.verNbr !== '') {
+        gedRec += "\n" + lvl2 + ' ' + Tags.VERSION + ' ' + this.verNbr;
+    }
+
+    return gedRec;
+});
+
 CharacterSet.prototype.toString = function () {
     "use strict";
     return  '(CharacterSet->' + this.characterSet

@@ -157,6 +157,10 @@ EntityAbstract.method('toConTag', function (field, maintag, main_lvl) {
         return ged_rec;
     });
 
+EntityAbstract.method('toGedcom', function(lvl, ver) {
+    return '';
+});
+
 EntityAbstract.method('parseTree', function (tree, ver) {
     this.ver = ver;
 });

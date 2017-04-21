@@ -47,6 +47,35 @@ FamilyLink.method('parseTree', function (tree, ver, tag) {
 
 });
 
+FamilyLink.method('toGedcom', function(lvl, ver, tag) {
+    "use strict";
+    if (!tag || tag ==='') tag = Tags.SPOUSEFAMILY;
+    if (!ver || ver === '') {
+        ver = this.ver;
+    }
+    var gedRec = '';
+    if (ver.indexOf('5.5.1') === 0) {
+        if (this.familyId && this.familyId !== '') {
+            gedRec += lvl + ' ' + tag + ' @' + this.familyId  + '@';
+            var lvl2 = lvl+1;
+            if (tag === Tags.CHILDFAMILY) {
+                if (this.linkageType && this.linkageType !== '') {
+                    gedRec += "\n"
+                        + lvl2 + ' ' + Tags.LINKTYPE + ' ' + this.linkageType;
+                }
+                if (this.linkageStatus && this.linkageStatus !== '') {
+                    gedRec += "\n" + lvl2
+                        + ' ' + Tags.LINKSTATUS + ' ' + this.linkageStatus;
+                }
+            }
+            for (var i=0; i<this.notes.length; i++) {
+                gedRec += "\n" + this.notes[i].toGedcom(lvl2, ver);
+            }
+        }
+    }
+    return gedRec;
+});
+
 FamilyLink.prototype.toString = function () {
     var str = '(FamilyId->' + this.familyId;
     if (this.linkageType && this.linkageType !== '') {

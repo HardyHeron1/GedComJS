@@ -106,6 +106,77 @@ FactDetail.method('parseTreeDetail', function(tree, ver) {
     }
 });
 
+FactDetail.method('toGedcomDetail', function(lvl, ver) {
+    "use strict";
+    if (!ver || ver === '') {
+        ver = this.ver;
+    }
+    var gedRec = '';
+    if (ver.indexOf('5.5.1') === 0) {
+        if (this.type && this.type !== '') {
+            gedRec += "\n" + lvl + ' ' + Tags.TYPE + ' ' + this.type;
+        }
+        if (this.date && this.date !== '') {
+            gedRec += "\n" + lvl + ' ' + Tags.DATE + ' ' + this.date;
+        }
+        var str = this.place.toGedcom(lvl, ver);
+        if (str && str !== '') {
+            gedRec += "\n" + str;
+        }
+        str = this.address.toGedcom(lvl, ver);
+        if (str && str !== '') {
+            gedRec += "\n" + str;
+        }
+        if (this.age && this.age !== '') {
+            gedRec += lvl + ' ' + Tags.AGE + ' ' + this.age;
+        }
+        if (this.respAgency && this.respAgency !== '') {
+            gedRec += lvl + ' ' + Tags.AGENCY + ' ' + this.respAgency;
+        }
+        if (this.religiousAffiliation
+            && this.religiousAffiliation !== ''
+        ) {
+            gedRec += lvl + ' '
+                + Tags.RELIGION + ' ' + this.religiousAffiliation;
+        }
+        if (this.restriction && this.restriction !== '') {
+            gedRec += lvl + ' ' + Tags.RESTRICTION + ' ' + this.restriction;
+        }
+        if (this.cause && this.cause !== '') {
+            gedRec += lvl + ' ' + Tags.CAUSE + ' ' + this.cause;
+        }
+        for (var i=0; i<this.citations.length; i++) {
+            gedRec += "\n" + this.citations[i].toGedcom(lvl, ver);
+        }
+        for (i=0; i<this.mediaLinks.length; i++) {
+            gedRec += "\n" + this.mediaLinks[i].toGedcom(lvl, ver);
+        }
+        for (i=0; i<this.notes.length; i++) {
+            gedRec += "\n" + this.notes[i].toGedcom(lvl, ver);
+        }
+    }
+    return gedRec;
+});
+
+FactDetail.method('toGedcom', function(lvl, ver) {
+    "use strict";
+    if (!ver || ver === '') {
+        ver = this.ver;
+    }
+    var gedRec = '';
+    if (ver.indexOf('5.5.1') === 0) {
+        if (this.tag && this.tag !== '') {
+            gedRec += lvl + ' ' + this.tag;
+            if (this.descr && this.descr !== '') {
+                gedRec += ' ' + this.descr;
+            }
+            lvl++;
+            gedRec += this.toGedcomDetail(lvl, ver);
+        }
+    }
+    return gedRec;
+});
+
 FactDetail.prototype.toString = function () {
     var str = '(Version->' + this.ver
         + ', Tag->' + this.tag
