@@ -30,6 +30,33 @@ Name.method('parseTree', function (tree, ver, top) {
     }
 });
 
+Name.method('toGedcom', function(lvl, ver, top) {
+    "use strict";
+    if (!top) top = Tags.FULL;
+    if (!ver || ver === '') {
+        ver = this.ver;
+    }
+    var gedRec = '';
+    if (ver.indexOf('5.5.1') === 0) {
+        if (this.full && this.full !== '') {
+            gedRec += lvl + ' ' + top + ' ' + this.full;
+        }
+        var lvl2 = lvl + 1;
+
+        if (this.type && this.type !== '') {
+            if (gedRec !== '') {
+                gedRec += "\n";
+            }
+            gedRec += lvl2 + ' ' + Tags.TYPE + ' ' +  this.type;
+        }
+        var str = this.pieces.toGedcom(lvl2, ver);
+        if (str && str !== '') {
+            gedRec += "\n" + str;
+        }
+    }
+    return gedRec;
+});
+
 Name.prototype.toString = function () {
     return '(Version->' + this.ver
             + ', Full->' + this.full

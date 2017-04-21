@@ -28,6 +28,19 @@ GedC.method('parseTree', function (tree, ver) {
         }
 });
 
+GedC.method('toGedcom', function(lvl, $ver) {
+    "use strict";
+    var gedRec = lvl + ' ' + Tags.GEDC;
+    var lvl2 = lvl + 1;
+    if (this.verNbr && this.verNbr !== '') {
+        gedRec += "\n" + lvl2 + ' ' + Tags.VERSION + ' ' + this.verNbr;
+    }
+    if (this.form && this.form !== '') {
+        gedRec += "\n" + lvl2 + ' ' + Tags.FORM + ' ' + this.form;
+    }
+    return gedRec;
+});
+
 GedC.prototype.toString = function () {
     "use strict";
     return '(VerNbr->' + this.verNbr
