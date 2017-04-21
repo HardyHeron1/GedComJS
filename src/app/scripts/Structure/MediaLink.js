@@ -37,6 +37,29 @@ MediaLink.method('parseTree', function (tree, ver) {
     }
 });
 
+MediaLink.method('toGedcom', function (lvl, ver) {
+    "use strict";
+    if (!ver || ver === '') {
+        ver = this.ver;
+    }
+    var gedRec = '';
+    if (ver.indexOf('5.5.1') === 0) {
+        if (this.id && this.id !== '') {
+            gedRec += lvl + ' ' + Tags.MEDIA + ' @' + this.id + '@';
+        } else {
+            gedRec += lvl + ' ' + Tags.MEDIA;
+            var lvl2 = lvl + 1;
+            if (this.title && this.title !== '') {
+                gedRec += "\n" + lvl2 + ' ' + Tags.TITLE + ' ' + this.title;
+            }
+            for (var i=0; i<this.mediaFiles.length; i++) {
+                gedRec += "\n" + this.mediaFiles[i].toGedcom(lvl2, ver);
+            }
+        }
+    }
+    return gedRec;
+});
+
 MediaLink.prototype.toString = function () {
     "use strict";
     var str = '(Version->' + this.ver;

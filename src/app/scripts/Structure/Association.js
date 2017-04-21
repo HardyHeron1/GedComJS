@@ -53,6 +53,33 @@ Association.method('parseTree', function(tree, ver) {
     }
 });
 
+Association.method('toGedcom', function (lvl, ver) {
+    "use strict";
+    if (!ver || ver === '') {
+        ver = this.ver;
+    }
+    var gedRec = '';
+    if (ver.indexOf('5.5.1') === 0) {
+        if (this.associateId && this.associateId !== '') {
+            gedRec += lvl + ' ' + Tags.ASSOCIATION
+                + ' @' + this.associateId + '@';
+
+            var lvl2 = lvl+1;
+            if (this.relationship && this.relationship !== '') {
+                gedRec += "\n" + lvl2 + ' '
+                    + Tags.RELATIONSHIP + ' ' + this.relationship;
+            }
+            for (var i=0; i<this.citations.length; i++) {
+                gedRec += "\n" + this.citations[i].toGedcom(lvl2, ver);
+            }
+            for (i=0; i<this.notes.length; i++) {
+                gedRec += "\n" + this.notes[i].toGedcom(lvl2, ver);
+            }
+        }
+    }
+    return gedRec;
+});
+
 Association.prototype.toString = function () {
     var str =  '(Version->' + this.ver
         + ', AssociateId->' + this.associateId

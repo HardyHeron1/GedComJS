@@ -23,6 +23,21 @@ Note.method('parseTree', function (tree, ver) {
     }
 });
 
+Note.method('toGedcom', function (lvl, ver) {
+    if (!ver || ver === '') {
+        ver = this.ver;
+    }
+    var gedRec = '';
+    if (ver.indexOf('5.5.1') === 0) {
+        if (this.id && this.id !== '') {
+            gedRec += lvl + ' ' + Tags.NOTE + ' @' + this.id + '@';
+        } else if (this.text && this.text !== '') {
+            gedRec += this.toConTag(this.text, Tags.NOTE, lvl);
+        }
+    }
+    return gedRec;
+});
+
 Note.prototype.toString = function () {
     var str =  '(Version->' + this.ver;
     if(this.id && this.id !== '')

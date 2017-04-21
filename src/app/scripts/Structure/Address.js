@@ -98,7 +98,7 @@ Address.method('parseTree', function (tree, ver) {
 });
 
 Address.method('toGedcom', function (lvl, ver) {
-    if (ver || ver === '') {
+    if (!ver || ver === '') {
         ver = this.ver;
     }
     var gedRec = '';
