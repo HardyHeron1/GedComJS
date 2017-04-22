@@ -46,7 +46,7 @@ PersonalName.method('toGedcom',function (lvl,ver){
     }
     var gedRec = '';
     if (ver.indexOf ('5.5.1') === 0) {
-        if (this.Name && this.Name !== '') {
+        if (this.name && this.name !== '') {
             gedRec += this.name.toGedcom(lvl, ver);
         }
         var lvl2 = lvl + 1;
