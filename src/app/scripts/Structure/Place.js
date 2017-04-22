@@ -90,16 +90,16 @@ Place.method('toGedcom',function (lvl, ver) {
                 gedRec += "\n" + lvl2
                     + ' ' + Tags.FORM + ' ' + this.placeForm;
             }
-            if (this.Coordinates['Latitude']
-                && this.Coordinates['Latitude']!== ''
+            if (this.coordinates['Latitude']
+                && this.coordinates['Latitude']!== ''
             ) {
                 gedRec += "\n" + lvl2 + ' ' + Tags.MAP;
                 gedRec += "\n" +(lvl2+1)
                     + ' ' + Tags.LATITUDE
-                    + ' ' + this.Coordinates['Latitude'];
+                    + ' ' + this.coordinates['Latitude'];
                 gedRec += "\n" +(lvl2+1)
                     + ' ' + Tags.LONGITUDE
-                    + ' '+ this.Coordinates['Longitude'];
+                    + ' '+ this.coordinates['Longitude'];
             }
             for (var i=0; i<this.phoneticNames.length; i++) {
                 gedRec += "\n"

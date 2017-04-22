@@ -48,6 +48,36 @@ RepositoryCitation.method('parseTree', function (tree, ver) {
     }
 });
 
+RepositoryCitation.method('toGedcom',function(lvl,ver){
+    if (!ver || ver === '') {
+        ver = this.ver;
+    }
+    var gedRec = '';
+    if (ver.indexOf('5.5.1')  === 0) {
+        var str = '';
+        var repositoryId = '';
+        if (this.repositoryId && this.repositoryId !== '') {
+            str = ' @' + this + repositoryId + '@';
+        }
+        gedRec += lvl + ' ' + Tags.REPOSITORY + str;
+        var lvl2 = lvl + 1;
+        for (var i = 0; i < this.callNbrs.length; i++) {
+            gedRec += "\n" + lvl2
+                + ' ' + Tags.CALLNBR
+                + ' ' + this.callNbrs[i]['Nbr'];
+            if (this.callNbrs[i]['Media']) {
+                gedRec += "\n" + (lvl2 + 1)
+                    + ' ' + Tags.MEDIATYPE
+                    + ' ' + this.callNbrs[i]['Media'];
+            }
+        }
+        for (i = 0; i < this.notes.length; i++) {
+            gedRec += "\n" + this.notes[i].toGedcom(lvl2, ver);
+        }
+    }
+    return gedRec;
+});
+
 RepositoryCitation.prototype.toString = function () {
     var str = '(RepositoryId->' + this.repositoryId
         + ', Notes->(';

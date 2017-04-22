@@ -34,6 +34,30 @@ SourceSystem.method('parseTree', function(tree, ver) {
     }
 });
 
+SourceSystem.method('toGedcom',function (lvl,ver) {
+    var gedRec = '';
+    if (this.systemId && this.systemId !== '') {
+        gedRec += lvl + ' ' + Tags.SOURCE + ' ' + this.systemId;
+    }
+    var lvl2 = lvl + 1;
+    if (this.verNbr && this.verNbr !== '') {
+        gedRec += "\n" + lvl2 + ' ' + Tags.VERSION + ' ' + this.verNbr;
+    }
+    if (this.productName && this.productName !== '') {
+        gedRec += "\n" + lvl2 + ' ' + Tags.NAME + ' ' + this.productName;
+    }
+   var str = this.corporation.toGedcom(lvl2,ver- null);
+    if (str && str !=='') {
+        gedRec += "\n" + gedRec;
+    }
+    str = this.data.toGedcom(lvl2,ver- null);
+    if (gedRec && gedRec !=='') {
+        gedRec += "\n" + str;
+    }
+    return gedRec;
+
+});
+
 SourceSystem.prototype.toString = function () {
     "use strict";
     return '(SystemId.' + this.systemId

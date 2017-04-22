@@ -55,6 +55,46 @@ SourceData.method('parseTree', function (tree, ver) {
     }
 });
 
+SourceData.method('toGedcom',function (lvl,ver) {
+    if (ver || ver === '') {
+        ver = this.ver;
+    }
+    var gedRec = '';
+    if (ver.indexOf('5.5.1')  === 0) {
+        gedRec += lvl + ' ' + Tags.DATA;
+        for (var i=0; i<this.recordedEvents.length; i++) {
+            gedRec += "\n" + (lvl+1) + ' '
+                + Tags.EVENT + ' '
+                + this.recordedEvents[i]['Types'];
+            if (this.recordedEvents[i]['Date']
+                && this.recordedEvents[i]['Date'] !== ''
+            ) {
+                gedRec += "\n" + (lvl+2) + ' '
+                    + Tags.DATE + ' '
+                    + this.recordedEvents[i]['Date'];
+            }
+            if (this.recordedEvents[i]['Jurisdiction']
+                && this.recordedEvents[i]['Jurisdiction'] !== ''
+            ) {
+                gedRec += "\n" + (lvl+2) + ' '
+                    + Tags.PLACE + ' '
+                    + this.recordedEvents[i]['Jurisdiction'];
+            }
+        }
+
+        if (this.responsibleAgency) {
+            gedRec += "\n" +(lvl+1)
+                + ' ' + Tags.AGENCY + ' ' + this.responsibleAgency;
+        }
+        for ( i=0; i<this.notes.length; i++) {
+            gedRec += "\n" + this.notes[i].toGedcom((lvl+1), ver);
+        }
+
+    }
+    return gedRec;
+
+});
+
 SourceData.prototype.toString = function() {
     "use strict";
     var str = '(RecordedEvents->(';
