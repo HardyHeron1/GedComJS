@@ -29,9 +29,9 @@ Note.method('toGedcom', function (lvl, ver) {
     }
     var gedRec = '';
     if (ver.indexOf('5.5.1') === 0) {
-        if (this.id && this.id !== '') {
+        if (this.id) {
             gedRec += lvl + ' ' + Tags.NOTE + ' @' + this.id + '@';
-        } else if (this.text && this.text !== '') {
+        } else if (this.text) {
             gedRec += this.toConTag(this.text, Tags.NOTE, lvl);
         }
     }
@@ -40,7 +40,7 @@ Note.method('toGedcom', function (lvl, ver) {
 
 Note.prototype.toString = function () {
     var str =  '(Version->' + this.ver;
-    if(this.id && this.id !== '')
+    if(this.id)
         str += ', Id->' + this.id;
     else
         str += ', Text->' + this.text;

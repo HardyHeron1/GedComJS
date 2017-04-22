@@ -60,12 +60,12 @@ Association.method('toGedcom', function (lvl, ver) {
     }
     var gedRec = '';
     if (ver.indexOf('5.5.1') === 0) {
-        if (this.associateId && this.associateId !== '') {
+        if (this.associateId) {
             gedRec += lvl + ' ' + Tags.ASSOCIATION
                 + ' @' + this.associateId + '@';
 
             var lvl2 = lvl+1;
-            if (this.relationship && this.relationship !== '') {
+            if (this.relationship) {
                 gedRec += "\n" + lvl2 + ' '
                     + Tags.RELATIONSHIP + ' ' + this.relationship;
             }

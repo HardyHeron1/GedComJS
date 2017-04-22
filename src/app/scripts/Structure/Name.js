@@ -33,17 +33,17 @@ Name.method('parseTree', function (tree, ver, top) {
 Name.method('toGedcom', function(lvl, ver, top) {
     "use strict";
     if (!top) top = Tags.FULL;
-    if (!ver || ver === '') {
+    if (!ver) {
         ver = this.ver;
     }
     var gedRec = '';
     if (ver.indexOf('5.5.1') === 0) {
-        if (this.full && this.full !== '') {
+        if (this.full) {
             gedRec += lvl + ' ' + top + ' ' + this.full;
         }
         var lvl2 = lvl + 1;
 
-        if (this.type && this.type !== '') {
+        if (this.type) {
             if (gedRec !== '') {
                 gedRec += "\n";
             }

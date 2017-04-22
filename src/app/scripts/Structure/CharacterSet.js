@@ -31,11 +31,11 @@ CharacterSet.method('toGedcom', function (lvl, ver) {
     "use strict";
     var gedRec = '';
 
-    if (this.characterSet && this.characterSet !== '') {
+    if (this.characterSet) {
         gedRec += lvl + ' ' + Tags.CHAR + ' ' + this.characterSet;
     }
     var lvl2 = lvl + 1;
-    if (this.verNbr && this.verNbr !== '') {
+    if (this.verNbr) {
         gedRec += "\n" + lvl2 + ' ' + Tags.VERSION + ' ' + this.verNbr;
     }
 

@@ -103,61 +103,61 @@ Address.method('toGedcom', function (lvl, ver) {
     }
     var gedRec = '';
     if (ver.indexOf('5.5.1') === 0) {
-        if (this.address && this.address !== '') {
+        if (this.address) {
             var addr =  this.address.split('\n');
             gedRec += lvl + ' ' + Tags.ADDR + ' ' + addr[0];
             var lvlplus = lvl + 1;
             for (var i=1;i<addr.length;i++) {
                 gedRec += "\n" + lvlplus + ' ' + Tags.CONT + ' ' +  addr[i];
             }
-            if (this.addressLine1 && this.addressLine1 !== '') {
+            if (this.addressLine1) {
                 gedRec += "\n" + lvlplus + ' ' + Tags.ADDR1 + ' '
                     +  this.addressLine1;
             }
-            if (this.addressLine2 && this.addressLine2 !== '') {
+            if (this.addressLine2) {
                 gedRec += "\n" + lvlplus + ' ' + Tags.ADDR2 + ' '
                     +  this.addressLine2;
             }
-            if (this.addressLine3 && this.addressLine3 !== '') {
+            if (this.addressLine3) {
                 gedRec += "\n" + lvlplus + ' ' + Tags.ADDR3 + ' '
                     +  this.addressLine3;
             }
-            if (this.city && this.city !== '') {
+            if (this.city) {
                 gedRec += "\n" + lvlplus + ' ' + Tags.CITY
                     + ' ' +  this.city;
             }
-            if (this.state && this.state !== '') {
+            if (this.state) {
                 gedRec += "\n" + lvlplus + ' ' + Tags.STATE + ' '
                     +  this.state;
             }
-            if (this.postalCode && this.postalCode !== '') {
+            if (this.postalCode) {
                 gedRec += "\n" + lvlplus + ' ' + Tags.POSTAL
                     + ' ' +  this.postalCode;
             }
-            if (this.country && this.country !== '') {
+            if (this.country) {
                 gedRec += "\n" + lvlplus + ' ' + Tags.CTRY + ' '
                     +  this.country;
             }
         }
-        if (this.phone && this.phone !== '') {
+        if (this.phone) {
             if (gedRec !== '') {
                 gedRec += "\n";
             }
             gedRec += lvl + ' ' + Tags.PHONE + ' ' +  this.phone;
         }
-        if (this.email && this.email !== '') {
+        if (this.email) {
             if (gedRec !== '') {
                 gedRec += "\n";
             }
             gedRec += lvl + ' ' + Tags.EMAIL + ' ' +  this.email;
         }
-        if (this.FAX && this.FAX !== '') {
+        if (this.FAX) {
             if (gedRec !== '') {
                 gedRec += "\n";
             }
             gedRec += lvl + ' ' + Tags.FAX + ' ' +  this.FAX;
         }
-        if (this.WWW && this.WWW !== '') {
+        if (this.WWW) {
             if (gedRec !== '') {
                 gedRec += "\n";
             }

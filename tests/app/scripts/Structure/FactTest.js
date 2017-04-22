@@ -67,4 +67,13 @@ describe('Fact', function() {
 
         });
     });
+
+    describe('ToGedcom', function() {
+        it('testGedcom', function () {
+            this.fact = new Fact();
+            var tree = [['1 FACT Tripped', [['2 TYPE Accident']]]];
+            this.fact.parseTree(tree, '5.5.1', 'FACT');
+            expect(this.fact.toGedcom(1, '5.5.1')).to.equal("1 FACT Tripped\n2 TYPE Accident");
+        });
+    });
 });

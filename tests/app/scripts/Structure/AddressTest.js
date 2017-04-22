@@ -39,8 +39,9 @@ describe('Address', function() {
     });
     describe('ToGedCom', function() {
         it('testGedcomAddrOnly', function () {
+            this.address = new Address();
             this.address.parseTree([['1 ADDR Address Line 0']], '5.5.1');
-            expect(this.address.toGedcom('1','5.5.1')).to.equal("1 ADDR Address Line 0");
+            expect(this.address.toGedcom(1,'5.5.1')).to.equal("1 ADDR Address Line 0");
         });
 
         it('testGedcomFull', function () {
@@ -63,7 +64,7 @@ describe('Address', function() {
                 ['1 WWW www.test.com']
             ];
             this.address.parseTree(tree, '5.5.1');
-            expect(this.address.toGedcom('1', '5.5.1')).to.equal("1 ADDR 555 Brown Street\n11 CONT Brown City, Brownington\n11 CONT 55555\n11 ADR1 555 Brown Street\n11 ADR3 55555\n11 CITY Brown City\n11 STAE Brownington\n11 POST 55555\n11 CTRY USA\n1 PHON 555-555-5555\n1 EMAIL tester@test.com\n1 FAX 555-555-5555\n1 WWW www.test.com");
+            expect(this.address.toGedcom(1, '5.5.1')).to.equal("1 ADDR 555 Brown Street\n2 CONT Brown City, Brownington\n2 CONT 55555\n2 ADR1 555 Brown Street\n2 ADR3 55555\n2 CITY Brown City\n2 STAE Brownington\n2 POST 55555\n2 CTRY USA\n1 PHON 555-555-5555\n1 EMAIL tester@test.com\n1 FAX 555-555-5555\n1 WWW www.test.com");
         });
     });
 });

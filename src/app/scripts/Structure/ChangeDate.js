@@ -47,11 +47,11 @@ ChangeDate.method('toGedcom', function (lvl, ver) {
     }
     var gedRec = '';
     if (ver.indexOf('5.5.1') === 0) {
-        if (this.date && this.date !== '') {
+        if (this.date) {
             gedRec += lvl + ' ' + Tags.CHANGEDATE;
             var lvl2 = lvl+1;
             gedRec += "\n" + lvl2 + ' ' + Tags.DATE + ' ' + this.date ;
-            if (this.time && this.time !== '') {
+            if (this.time) {
                 gedRec += "\n" +(lvl2+1)
                     + ' ' + Tags.TIME + ' ' + this.time;
             }

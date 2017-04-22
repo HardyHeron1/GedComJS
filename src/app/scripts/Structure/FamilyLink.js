@@ -55,15 +55,15 @@ FamilyLink.method('toGedcom', function(lvl, ver, tag) {
     }
     var gedRec = '';
     if (ver.indexOf('5.5.1') === 0) {
-        if (this.familyId && this.familyId !== '') {
+        if (this.familyId) {
             gedRec += lvl + ' ' + tag + ' @' + this.familyId  + '@';
             var lvl2 = lvl+1;
             if (tag === Tags.CHILDFAMILY) {
-                if (this.linkageType && this.linkageType !== '') {
+                if (this.linkageType) {
                     gedRec += "\n"
                         + lvl2 + ' ' + Tags.LINKTYPE + ' ' + this.linkageType;
                 }
-                if (this.linkageStatus && this.linkageStatus !== '') {
+                if (this.linkageStatus) {
                     gedRec += "\n" + lvl2
                         + ' ' + Tags.LINKSTATUS + ' ' + this.linkageStatus;
                 }

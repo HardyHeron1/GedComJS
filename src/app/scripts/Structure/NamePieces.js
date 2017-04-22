@@ -65,41 +65,41 @@ NamePieces.method('parseTree', function(tree, ver) {
 
 NamePieces.method('toGedcom', function(lvl, ver) {
     "use strict";
-    if (!ver || ver === '') {
+    if (!ver) {
         ver = this.ver;
     }
     var gedRec = '';
     if (ver.indexOf('5.5.1') === 0) {
-        if (this.prefix && this.prefix !== '') {
+        if (this.prefix) {
             gedRec += lvl + ' ' + Tags.PREFIX + ' ' + this.prefix;
         }
 
-        if (this.given && this.given !== '') {
+        if (this.given) {
             if (gedRec !== '') {
                 gedRec += "\n";
             }
             gedRec += lvl + ' ' + Tags.GIVEN + ' ' +  this.given;
         }
-        if (this.nickName && this.nickName !== '') {
+        if (this.nickName) {
             if (gedRec !== '') {
                 gedRec += "\n";
             }
             gedRec += lvl + ' ' + Tags.NICK + ' ' +  this.nickName;
         }
-        if (this.surnamePrefix && this.surnamePrefix !== '') {
+        if (this.surnamePrefix) {
             if (gedRec !== '') {
                 gedRec += "\n";
             }
             gedRec += lvl + ' ' + Tags.SURPREFIX
                 + ' ' +  this.surnamePrefix;
         }
-        if (this.surname && this.surname !== '') {
+        if (this.surname) {
             if (gedRec !== '') {
                 gedRec += "\n";
             }
             gedRec += lvl + ' ' + Tags.SURNAME + ' ' +  this.surname;
         }
-        if (this.suffix && this.suffix !== '') {
+        if (this.suffix) {
             if (gedRec !== '') {
                 gedRec += "\n";
             }

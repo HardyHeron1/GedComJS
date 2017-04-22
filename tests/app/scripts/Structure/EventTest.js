@@ -113,4 +113,12 @@ describe('Event', function() {
 
         });
     });
+    describe('ToGedcom', function() {
+        it('testGedcom', function () {
+            this.event = new Event();
+            var tree = [['1 EVEN Tripped', [['2 TYPE Accident']]]];
+            this.event.parseTree(tree, '5.5.1');
+            expect(this.event.toGedcom(1, '5.5.1')).to.equal("1 EVEN Tripped\n2 TYPE Accident");
+        });
+    });
 });

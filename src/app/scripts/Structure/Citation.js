@@ -91,27 +91,27 @@ Citation.method('toGedcom', function (lvl, ver) {
     }
     var gedRec = '';
     if (ver.indexOf('5.5.1') === 0) {
-        if (this.sourceId && this.sourceId !== '') {
+        if (this.sourceId) {
             gedRec += lvl + ' ' + Tags.CITE + ' @' + this.sourceId + '@';
         }
         var lvl2 = lvl + 1;
-        if (this.page && this.page !== '') {
+        if (this.page) {
             gedRec += "\n" + lvl2 + ' ' + Tags.PAGE + ' ' + this.page;
         }
-        if (this.eventType && this.eventType !== '') {
+        if (this.eventType) {
             gedRec += "\n" + lvl2 + ' '
                 + Tags.EVENTTYPE + ' ' + this.eventType;
-            if (this.roleInEvent && this.roleInEvent !== '') {
+            if (this.roleInEvent) {
                 gedRec += "\n" + (lvl2+1)
                     + ' ' + Tags.ROLE + ' ' + this.roleInEvent;
             }
         }
-        if (this.entryDate && this.entryDate !== ''
+        if (this.entryDate
             || this.texts.length > 0
         ) {
             gedRec += "\n" + lvl2 + ' ' + Tags.DATA;
             var lvl3 = lvl2 + 1;
-            if (this.entryDate && this.entryDate !== '') {
+            if (this.entryDate) {
                 gedRec += "\n"
                     + lvl3 + ' ' + Tags.DATE + ' ' + this.entryDate;
             }
@@ -120,7 +120,7 @@ Citation.method('toGedcom', function (lvl, ver) {
                     + this.toConTag(this.texts[i], Tags.TEXT, lvl3);
             }
         }
-        if (this.quay && this.quay !== '') {
+        if (this.quay) {
             gedRec += "\n" + lvl2 + ' ' + Tags.QUAY + ' ' + this.quay;
         }
         for (i=0; i<this.mediaLinks; i++) {

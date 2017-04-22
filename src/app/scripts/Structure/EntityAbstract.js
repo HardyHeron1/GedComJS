@@ -113,7 +113,7 @@ EntityAbstract.method('parseConTag',function (tree, tag) {
             } else {
                 tmp = sub2[i][0].match(new RegExp('^[0-9][0-9]? CONC (.*)', 'u'));
                 if (tmp && tmp.length > 0) {
-                    str += "\n" + tmp[1];
+                    str += tmp[1];
                 }
             }
         }
@@ -142,7 +142,7 @@ EntityAbstract.method('toConTag', function (field, maintag, main_lvl) {
         }
         //check for CONC of each line
         //CONC before CONT since CONT contains the newline
-        var cnt = count(copy);
+        var cnt = copy.length;
         for (var i = 1; i < cnt; i++) {
             ged_rec += "\n" + lvlplus + ' CONT ' + copy[i].substr(0, 90);
             if (copy[i].length > 90) {

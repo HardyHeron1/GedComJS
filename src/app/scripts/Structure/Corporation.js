@@ -26,7 +26,7 @@ Corporation.method('parseTree', function (tree, ver) {
 Corporation.method('toGedcom', function (lvl, ver) {
     "use strict";
     var gedRec = '';
-    if (this.name && this.name !== '') {
+    if (this.name) {
         gedRec += lvl + ' ' + Tags.CORP + ' ' + this.name;
     }
     var lvl2 = lvl + 1;

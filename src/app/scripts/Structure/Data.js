@@ -39,18 +39,18 @@ Data.method('parseTree', function(tree, ver) {
 Data.method('toGedcom', function (lvl, ver) {
     "use strict";
     var gedRec = '';
-    if (this.sourceName && this.sourceName !== '') {
+    if (this.sourceName) {
         gedRec += lvl + ' ' + Tags.DATA + ' ' + this.sourceName;
     }
 
     var lvl2 = lvl + 1;
-    if (this.date && this.date !== '') {
+    if (this.date) {
         if (gedRec !== '') {
             gedRec += "\n";
         }
         gedRec += lvl2 + ' ' + Tags.DATE + ' ' + this.date;
     }
-    if (this.copyright && this.copyright !== '') {
+    if (this.copyright) {
         gedRec += "\n"
             + this.toConTag(this.copyright, Tags.COPYRIGHT, lvl2);
     }

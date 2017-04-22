@@ -40,26 +40,26 @@ MediaFile.method('parseTree', function (tree, ver) {
     }
 });
 
-MediaFile('toGedcom', function (lvl, ver) {
+MediaFile.method('toGedcom', function (lvl, ver) {
     "use strict";
     if (!ver || ver === '') {
         ver = this.ver;
     }
     var gedRec = '';
     if (ver.indexOf('5.5.1') === 0) {
-        if (this.refNbr && this.refNbr !== '') {
+        if (this.refNbr) {
             gedRec += lvl + ' ' + Tags.FILE + ' ' + this.refNbr;
 
             var lvl2 = lvl+1;
             if (this.format && this.format !== '') {
                 gedRec += "\n" + lvl2
                     + ' ' + Tags.FORMAT + ' ' + this.format;
-                if (this.formatType && this.formatType !== '') {
+                if (this.formatType) {
                     gedRec += "\n" +(lvl2+1)
                         + ' ' + Tags.TYPE + ' ' + this.formatType;
                 }
             }
-            if (this.title && this.title !== '') {
+            if (this.title) {
                 gedRec += "\n" + lvl2 + ' ' + Tags.TITLE + ' ' + this.title;
             }
         }

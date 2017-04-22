@@ -44,12 +44,12 @@ MediaLink.method('toGedcom', function (lvl, ver) {
     }
     var gedRec = '';
     if (ver.indexOf('5.5.1') === 0) {
-        if (this.id && this.id !== '') {
+        if (this.id) {
             gedRec += lvl + ' ' + Tags.MEDIA + ' @' + this.id + '@';
         } else {
             gedRec += lvl + ' ' + Tags.MEDIA;
             var lvl2 = lvl + 1;
-            if (this.title && this.title !== '') {
+            if (this.title) {
                 gedRec += "\n" + lvl2 + ' ' + Tags.TITLE + ' ' + this.title;
             }
             for (var i=0; i<this.mediaFiles.length; i++) {
@@ -63,7 +63,7 @@ MediaLink.method('toGedcom', function (lvl, ver) {
 MediaLink.prototype.toString = function () {
     "use strict";
     var str = '(Version->' + this.ver;
-    if ((this.id) && this.id !== '') {
+    if (this.id) {
         str += ', Id->' + this.id;
     } else {
         str += ', Title->' + this.title
