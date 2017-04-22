@@ -40,6 +40,28 @@ PersonalName.method('parseTree', function (tree, ver) {
     }
 });
 
+PersonalName.method('toGedcom',function (lvl,ver){
+    if (!ver || ver === '') {
+        ver = this.ver;
+    }
+    var gedRec = '';
+    if (ver.indexOf ('5.5.1') === 0) {
+        if (this.Name && this.Name !== '') {
+            gedRec += this.name.toGedcom(lvl, ver);
+        }
+        var lvl2 = lvl + 1;
+        for (var i=0; i<this.phoneticNames.length; i++) {
+            gedRec += "\n" + this.phoneticNames[i].toGedcom(lvl2, ver);
+        }
+        for (i=0; i<this.romanizedNames.length; i++) {
+            gedRec += "\n" + this.romanizedNames[i].toGedcom(lvl2, ver);
+        }
+    }
+    return gedRec;
+});
+
+
+
 PersonalName.prototype.toString = function() {
     "use strict";
     var str = '(Version->' + this.ver
