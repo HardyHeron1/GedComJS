@@ -26,9 +26,8 @@ RepositoryCitation.method('parseTree', function (tree, ver) {
                 var i3=this.findTag(sub2 [i2][1], Tags.MEDIATYPE);
                 if (i3!==false
                 ) {
-                    this.callNbrs[idx] = {'Media': this.parseText(
-                        sub2 [i2][1][i3], Tags.MEDIATYPE)
-                    };
+                    this.callNbrs[idx]['Media'] =  this.parseText(
+                        sub2 [i2][1][i3], Tags.MEDIATYPE);
                 }
             }
             off = i2 + 1;
