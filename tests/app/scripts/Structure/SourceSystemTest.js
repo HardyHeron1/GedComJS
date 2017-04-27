@@ -57,7 +57,7 @@ describe('SourceSystem', function() {
                 [['2 VERS 1.0'],
                     ['2 NAME FamilyVanGogh']]]];
             this.sourceSystem.parseTree(tree, '5.5.1');
-            expect(this.sourceSystem.toGedcom(1,'5.5.1')).to.equal("1 SOUR 42\n2 VERS 1.0\n2 NAME FamilyVanGogh\n");
+            expect(this.sourceSystem.toGedcom(1,'5.5.1')).to.equal("1 SOUR 42\n2 VERS 1.0\n2 NAME FamilyVanGogh");
         });
 
         it('testGedcomFull', function() {
@@ -92,7 +92,7 @@ describe('SourceSystem', function() {
             ]
             ];
             this.sourceSystem.parseTree(tree, '5.5.1');
-            expect(this.sourceSystem.toGedcom(1,'5.5.1')).to.equal("1 SOUR 42\n2 VERS 1.0\n2 NAME FamilyVanGogh\n1 SOUR 42\n2 VERS 1.0\n2 NAME FamilyVanGogh\n2 DATA Data Source\n3 DATE 2010-03-01\n3 COPR Line1");
+            expect(this.sourceSystem.toGedcom(1,'5.5.1')).to.equal("1 SOUR 42\n2 VERS 1.0\n2 NAME FamilyVanGogh\n2 CORP van Gogh Enterprises\n3 ADDR 555 Brown Street\n4 CONT Brown City, Brownington\n4 CONT 55555\n4 ADR1 555 Brown Street\n4 ADR3 55555\n4 CITY Brown City\n4 STAE Brownington\n4 POST 55555\n4 CTRY USA\n3 PHON 555-555-5555\n3 EMAIL tester@test.com\n3 FAX 555-555-5555\n3 WWW www.test.com\n2 DATA Data Source\n3 DATE 2010-03-01\n3 COPR Line1");
         });
     });
 });

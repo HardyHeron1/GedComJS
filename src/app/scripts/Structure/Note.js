@@ -24,7 +24,7 @@ Note.method('parseTree', function (tree, ver) {
 });
 
 Note.method('toGedcom', function (lvl, ver) {
-    if (!ver || ver === '') {
+    if (!ver) {
         ver = this.ver;
     }
     var gedRec = '';

@@ -147,10 +147,9 @@ FamilyRecord.method('parseTree',function (tree,ver) {
         }
         i1=this.findTag(sub2,Tags.USERFILE);
         if (i1!==false) {
-            this.userRefNbrs = [{'Nbr':
-                this.parseText(sub2 [i1], Tags.USERFILE)}];
+            this.userRefNbrs = [{'Nbr': this.parseText(sub2 [i1], Tags.USERFILE)}];
             if (sub2[i1][1]) {
-                var i2=this.findTag(sub2,Tags.TYPE);
+                var i2=this.findTag(sub2[i1][1],Tags.TYPE);
                 if (i2!== false) {
                     this.userRefNbrs[this.userRefNbrs.length-1]['Type']
                         = this.parseText(sub2 [i1][1][i2], Tags.TYPE);
@@ -231,7 +230,7 @@ FamilyRecord.prototype.toString = function () {
         str += "Submitter->" + this.submitterLinks[i];
     }
     str += '), Citations->(';
-    for (i=0; i<this.citations; i++) {
+    for (i=0; i<this.citations.length; i++) {
         str += "\n" + this.citations[i];
     }
     str += '), MediaLinks->(';

@@ -46,12 +46,12 @@ SourceSystem.method('toGedcom',function (lvl,ver) {
     if (this.productName && this.productName !== '') {
         gedRec += "\n" + lvl2 + ' ' + Tags.NAME + ' ' + this.productName;
     }
-   var str = this.corporation.toGedcom(lvl2,ver- null);
+   var str = this.corporation.toGedcom(lvl2,null);
     if (str && str !=='') {
-        gedRec += "\n" + gedRec;
+        gedRec += "\n" + str;
     }
-    str = this.data.toGedcom(lvl2,ver- null);
-    if (gedRec && gedRec !=='') {
+    str = this.data.toGedcom(lvl2,null);
+    if (str && str !=='') {
         gedRec += "\n" + str;
     }
     return gedRec;

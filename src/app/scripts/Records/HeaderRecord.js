@@ -2,7 +2,7 @@
  * Created by faiz on 4/25/2017.
  */
 
-function HeaderRecord(destinationSystem,transmissionDateTime,submitterId,submissionId,filename,copyright,placeForm) {
+function HeaderRecord(destinationSystem,transmissionDateTime,submitterId,submissionId,filename,copyright,placeForm,language) {
     "use strict";
     this.sourceSystem = new SourceSystem();
     this.destinationSystem = destinationSystem;
@@ -11,6 +11,7 @@ function HeaderRecord(destinationSystem,transmissionDateTime,submitterId,submiss
     this.submissionId = submissionId;
     this.filename = filename;
     this.copyright = copyright;
+    this.language = language;
     this.characterSet = new CharacterSet();
     this.gedC = new GedC();
     this.placeForm = placeForm;
@@ -22,8 +23,9 @@ HeaderRecord.inherits(EntityAbstract);
 HeaderRecord.method('toGedcom',function (lvl,ver) {
    var gedRec = lvl + ' ' + Tags.HEADER;
    var lvl2 = lvl + 1;
-
-    gedRec += "\n" + this.sourceSystem.toGedcom(lvl2,ver=null);
+    var str1 = this.sourceSystem.toGedcom(lvl2,null);
+    if (str1)
+        gedRec += "\n" + this.sourceSystem.toGedcom(lvl2,null);
 
     if (this.destinationSystem) {
         gedRec += "\n" + lvl2
@@ -52,7 +54,7 @@ HeaderRecord.method('toGedcom',function (lvl,ver) {
         gedRec += "\n" + lvl2 + ' ' + Tags.COPYRIGHT + ' ' + this.copyright;
     }
     var str = this.gedC.toGedcom(lvl2, null);
-    if (str && str !=='' && str.indexOf(Tags.VERSION) !== false) {
+    if (str && str.indexOf(Tags.VERSION) !== -1) {
         gedRec += "\n" + str;
     }
     str = this.characterSet.toGedcom(lvl2, null);
@@ -65,10 +67,11 @@ HeaderRecord.method('toGedcom',function (lvl,ver) {
     if (this.placeForm) {
         gedRec += "\n" + lvl2 + ' ' + Tags.PLACE
             + "\n" + (lvl2+1) + ' ' + Tags.FORM + ' ' + this.placeForm;
-    }
-    str = this.note.toGedcom(lvl2, null);
-    if (str) {
-        gedRec += "\n" + str;
+    }var str2 = '';
+    if (this.note)
+        str2 = this.note.toGedcom(lvl2, null);
+    if (str2) {
+        gedRec += "\n" + str2;
     }
 
     return gedRec;
@@ -77,7 +80,7 @@ HeaderRecord.method('toGedcom',function (lvl,ver) {
 HeaderRecord.method('parseTree',function (tree,ver) {
     if (tree[0][1]) {
        var sub2 = tree[0][1];
-        this.sourceSystem.parseTree(sub2,ver= null);
+        this.sourceSystem.parseTree(sub2,ver);
         var i1 = this.findTag(sub2,Tags.DEST);
         if (i1!==false) {
             this.destinationSystem
@@ -88,7 +91,7 @@ HeaderRecord.method('parseTree',function (tree,ver) {
             this.transmissionDateTime
                 = this.parseText(sub2 [i1], Tags.DATE);
             if (sub2[i1][1]) {
-                var i2 = this.findTag(sub2,Tags.TIME);
+                var i2 = this.findTag(sub2[i1][1],Tags.TIME);
                 if (i2 !== false) {
                     this.transmissionDateTime += ' '
                         + this.parseText(sub2 [i1][1][i2], Tags.TIME);
@@ -120,9 +123,9 @@ HeaderRecord.method('parseTree',function (tree,ver) {
             this.submissionId
                 = this.parsePtrId(sub2 [i1], Tags.SUBMISSION);
         }
-        this.characterSet.parseTree(sub2, null);
-        this.gedC.parseTree(sub2, null);
-        this.note.parseTree(sub2, null);
+        this.characterSet.parseTree(sub2, ver);
+        this.gedC.parseTree(sub2, ver);
+        this.note.parseTree(sub2, ver);
 
         i1 = this.findTag(sub2,Tags.PLACE);
         if (i1!==false) {

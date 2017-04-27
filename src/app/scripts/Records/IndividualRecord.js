@@ -2,15 +2,15 @@
  * Created by faiz on 4/25/2017.
  */
 
-function IndividualRecord(id,restriction,gender,events,attributes,ldsOrdinances,permRecFileNbr,ancFileNbr,autoRecId) {
+function IndividualRecord(id,restriction,gender,permRecFileNbr,ancFileNbr,autoRecId) {
     "use strict";
     this.id = id;
     this.restriction = restriction;
     this.names = [];
     this.gender = gender;
-    this.events = events;
-    this.attributes = attributes;
-    this.ldsOrdinances = ldsOrdinances;
+    this.events = [];
+    this.attributes = [];
+    this.ldsOrdinances = [];
     this.childFamilyLinks = [];
     this.spouseFamilyLinks = [];
     this.submitterLinks = [];
@@ -75,10 +75,11 @@ IndividualRecord.method('toGedcom',function (lvl, ver) {
         for (i=0; i<this.events.length; i++) {
             gedRec += "\n" + this.events[i].toGedcom(lvl2, ver);
         }
-        for (i=0; i<this.attributes.length; i++) {
-            gedRec += "\n" + this.attributes[i].toGedcom(lvl2, ver);
+        if (this.attributes) {
+            for (i = 0; i < this.attributes.length; i++) {
+                gedRec += "\n" + this.attributes[i].toGedcom(lvl2, ver);
+            }
         }
-
         for (i=0; i<this.childFamilyLinks.length; i++) {
             gedRec += "\n"
                     + this.childFamilyLinks[i]
@@ -245,7 +246,7 @@ IndividualRecord.method('parseTree',function (tree,ver) {
             this.userRefNbrs = [{'Nbr':
                 this.parseText(sub2 [i1], Tags.USERFILE)}];
             if (sub2[i1][1]) {
-                var i2 = this.findTag(sub2, Tags.TYPE);
+                var i2 = this.findTag(sub2[i1][1], Tags.TYPE);
                 if (i2!== false) {
                     this.userRefNbrs[this.userRefNbrs.length - 1]['Type']
                         = this.parseText(sub2 [i1][1][i2], Tags.TYPE);
